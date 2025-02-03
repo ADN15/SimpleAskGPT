@@ -19,7 +19,7 @@ function App() {
       const res = await axios.post(
         "https://api.openai.com/v1/chat/completions",
         {
-          model: "gpt-3.5-turbo",
+          model: "gpt-4o-mini",
           messages: [{ role: "user", content: query }],
         },
         {
@@ -42,29 +42,31 @@ function App() {
 
   return (
     <div className="App">
-      <h1 align="center">Chat with GPT</h1>
-      <div className="container">
+      <div className="header-container">
+        <img src="https://1000logos.net/wp-content/uploads/2023/02/ChatGPT-Logo.jpg" alt="ChatGPT Logo" />
+        <h1>Chat with GPT</h1>
+      </div>
+      <div class="input-container">
         <textarea
           placeholder="Insert API Key"
           value={apiKey}
           onChange={(e) => setApiKey(e.target.value)}
         />
-        <textarea
+        <textarea 
           placeholder="Type your question..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-        />
-        <button onClick={handleSubmit} disabled={loading || !apiKey || !query}>
-          {loading ? "Loading..." : "Ask GPT"}
+        ></textarea>
+        <button id="generate-button" onClick={handleSubmit} disabled={loading || !apiKey || !query}>
+          {loading ? "Loading..." : "Search"}
         </button>
-        {error && <div className="error">{error}</div>}
-        {response && (
-          <div className="output">
-            <strong>Response:</strong>
-            <p>{response}</p>
-          </div>
-        )}
       </div>
+    {error && <div className="error">{error}</div>}
+        {response && ( 
+          <div className="response-container">
+          <p>{response}</p>
+        </div>
+      )}
     </div>
   );
 }
