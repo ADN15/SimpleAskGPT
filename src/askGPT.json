@@ -1,0 +1,72 @@
+{
+    "id": "com.sap.sac.askGPT",
+    "version": "0.0.1",
+    "name": "askGPT",
+    "description": "Ask GPT API Widget",
+    "newInstancePrefix": "askGPT",
+    "icon": "/api-icon.png",
+    "vendor": "",
+    "eula": "",
+    "license": "",
+    "imports": [],
+    "webcomponents": [
+      {
+        "kind": "main",
+        "tag": "com-sap-sac-askgpt",
+        "url": "/askGPT.js",
+        "integrity": "",
+        "ignoreIntegrity": true
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "API Key for authentication",
+        "default": ""
+      },
+      "query": {
+        "type": "string",
+        "description": "User query to send to the API",
+        "default": ""
+      }
+    },
+    "methods": {
+        "setApiKey": {
+            "description": "Set Api Key of ChatGPT",
+            "parameters": [
+                {
+                    "name": "apiKey",
+                    "type": "string",
+                    "description": "Api Key for authorization"
+                }
+            ],
+            "body": "this.apiKey = apiKey;"
+        },
+        "callAPI": {
+            "returnType": "string",
+            "description": "Trigger API call to OpenAI GPT",
+            "parameters": [
+            {
+                "name": "apiKey",
+                "type": "string",
+                "description": "The API key for authorization"
+            },
+            {
+                "name": "query",
+                "type": "string",
+                "description": "The query to ask the API"
+            }
+            ],
+            "body": "return 'API call triggered';"
+        }
+    },
+    "events": {
+      "onAPIResponse": {
+        "description": "Event triggered when the API response is received"
+      },
+      "onError": {
+        "description": "Event triggered when an error occurs during the API call"
+      }
+    }
+  }
+  
