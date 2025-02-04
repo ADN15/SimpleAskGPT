@@ -3,40 +3,51 @@ body {
   background-color: #f3f4f6;
   color: #333;
 }
+
 div {
   margin: 50px auto;
-  max-width: 700px;
+  max-width: 850px;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+
 .container {
   margin-bottom: 5px; /* Konsistensi jarak antar container */
 }
+
 .header-container {
   margin-top: 5px;
   display: flex;
   align-items: center;
   margin-bottom: 5px; /* Untuk jarak dengan container lainnya */
 }
+
 .header-container img {
   width: 40px;
   height: 40px;
   margin-right: 15px;
   border-radius: 5px;
 }
+
 .header-container h1 {
   font-size: 24px;
   margin: 0;
 }
+
 .input-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 5px;
-  margin-bottom: 5px; /* Konsisten dengan container lainnya */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: stretch;
+  margin-bottom: 10px; /* Space below textarea */
 }
+
+.input-container input {
+  flex: 1; /* Makes the input take the remaining space */
+  padding: 8px;
+}
+
 .radio-container {
   display: flex;
   gap: 20px;
@@ -44,10 +55,12 @@ div {
   margin-top: 5px;
   margin-bottom: 5px; /* Konsisten dengan container lainnya */
 }
+
 .radio-label {
   font-size: 16px;
   color: #333;
 }
+
 #prompt-input {
   flex-grow: 1;
   padding: 12px;
@@ -59,40 +72,30 @@ div {
   resize: vertical;
   transition: box-shadow 0.3s;
 }
+
 #prompt-input:focus {
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   border-color: #007bff;
 }
-#attachment-button {
-  padding: 12px;
-  font-size: 16px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 10px;
-  transition: background-color 0.3s;
-}
-#attachment-button:hover {
-  background-color: #e9ecef;
-}
-#file-input {
-  display: none;
-}
+
 #generate-button {
+  align-self: flex-end;
   padding: 12px 20px;
   font-size: 16px;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  z-index: 2;
 }
+
 #generate-button:hover {
   background-color: #0056b3;
 }
+
 .response-container {
   max-height: 400px;
   overflow: auto;
@@ -111,34 +114,51 @@ div {
   color: red;
 }
 
-
 canvas {
   max-width: 100%;
 }
-.file-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 5px;
-  margin-bottom: 5px; /* Konsisten dengan container lainnya */
-  height: 60px;
-}
-.file-name {
-  font-size: 14px;
-  color: #333;
-  flex-grow: 1;
-  margin-right: 10px;
-}
-.delete-icon {
-  font-size: 18px;
-  color: red;
-  cursor: pointer;
-  display: none;
-  transition: transform 0.2s;
-}
-.delete-icon:hover {
-  transform: scale(1.2);
-}
+
 #table-dropdown {
   display: none;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+  transition: box-shadow 0.3s;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+
+/* Button Row */
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start; /* Adjusted alignment */
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
